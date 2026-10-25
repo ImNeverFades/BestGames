@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — BestGames</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__brand">
+        <div class="header__logo-slot">
+          <img src="img/logo.png" alt="Логотип" class="header__logo-img">
+        </div>
+        <span class="header__brand-title">BestGames</span>
+      </a>
+
+      <input type="checkbox" id="burger-profile" class="header__burger-checkbox">
+      <label for="burger-profile" class="header__burger-btn" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </label>
+
+      <nav class="header__nav">
+        <a href="index.html#search" class="header__nav-link">Поиск</a>
+        <a href="catalog.html" class="header__nav-link">Каталог игр</a>
+        <a href="profile.html" class="header__nav-link">Личный кабинет</a>
+        <a href="login.html" class="btn">Выйти</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Контент личного кабинета -->
+  <main class="main section">
+    <div class="container">
+      <h1 class="section__title">Личный кабинет игрока</h1>
+
+      <div class="profile-layout">
+        <!-- Блок данных пользователя и настроек -->
+        <aside class="profile-box">
+          <h2 class="footer__col-title">Информация о пользователе</h2>
+          <ul class="profile-box__list">
+            <li class="profile-box__item"><span>E-mail:</span> <strong>player@bestgames.ru</strong></li>
+            <li class="profile-box__item"><span>Фамилия:</span> <strong>Соколов</strong></li>
+            <li class="profile-box__item"><span>Имя:</span> <strong>Дмитрий</strong></li>
+            <li class="profile-box__item"><span>Дата рождения:</span> <strong>14.08.2003</strong></li>
+            <li class="profile-box__item"><span>Телефон:</span> <strong>+7 (900) 555-35-35</strong></li>
+          </ul>
+
+          <div class="section">
+            <h2 class="footer__col-title">Настройки профиля</h2>
+            <div class="form-card__group">
+              <label for="theme-select" class="form-card__label">Выбор темы оформления</label>
+              <select id="theme-select" class="form-card__select" onchange="location = this.value;">
+                <option value="index.html" selected>Темная тема (по умолчанию)</option>
+                <option value="index_light.html">Светлая тема</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn--outline btn--full">Сменить пароль</button>
+          </div>
+        </aside>
+
+        <!-- История покупок -->
+        <section class="profile-box">
+          <h2 class="footer__col-title">История покупок</h2>
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Дата покупки</th>
+                <th>Название игры / предмета</th>
+                <th>Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>12.02.2026</td>
+                <td>Cyber Arena 2088 (Ключ активации)</td>
+                <td>2 490 ₽</td>
+              </tr>
+              <tr>
+                <td>28.01.2026</td>
+                <td>Набор скинов «Vortex Dragon» (Внутриигровой предмет)</td>
+                <td>650 ₽</td>
+              </tr>
+              <tr>
+                <td>15.01.2026</td>
+                <td>Elden Odyssey — Deluxe Edition</td>
+                <td>2 990 ₽</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3 class="footer__col-title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a href="tel:88009995599" class="footer__link">Телефон: 8-800-999-55-99</a></li>
+          <li><a href="mailto:best@games.ru" class="footer__link">E-mail: best@games.ru</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Информация</h3>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">Клиентам</a></li>
+          <li><a href="#" class="footer__link">Партнерам</a></li>
+          <li><a href="#" class="footer__link">О нас</a></li>
+          <li><a href="#" class="footer__link">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Навигация по сайту</h3>
+        <ul class="footer__list">
+          <li><a href="index.html" class="footer__link">Главная</a></li>
+          <li><a href="register.html" class="footer__link">Регистрация</a></li>
+          <li><a href="login.html" class="footer__link">Авторизация</a></li>
+          <li><a href="profile.html" class="footer__link">Личный кабинет</a></li>
+          <li><a href="index.html#search" class="footer__link">Поиск</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
