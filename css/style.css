@@ -1,0 +1,879 @@
+/* ==========================================================================
+   1. ПОДКЛЮЧЕНИЕ ШРИФТОВ RUBIK
+   ========================================================================== */
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   2. ЦВЕТОВАЯ ПАЛИТРА И ТЕМИЗАЦИЯ (СТРОГО 15 ЦВЕТОВ)
+   ========================================================================== */
+:root {
+  /* Основной цвет (Желтая гамма) */
+  --c-pri-1: #FFF200;
+  --c-pri-2: #BFB830;
+  --c-pri-3: #A69D00;
+  --c-pri-4: #FFF540;
+  --c-pri-5: #FFF873;
+
+  /* Вторичный цвет A (Красная гамма) */
+  --c-sec-a1: #ED002F;
+  --c-sec-a2: #B22D47;
+  --c-sec-a3: #9A001E;
+  --c-sec-a4: #F63E62;
+  --c-sec-a5: #F66F89;
+
+  /* Вторичный цвет B (Синяя гамма) */
+  --c-sec-b1: #0F4FA8;
+  --c-sec-b2: #284C7E;
+  --c-sec-b3: #05316D;
+  --c-sec-b4: #4380D3;
+  --c-sec-b5: #6996D3;
+
+  /* Переменные темной темы (по умолчанию) */
+  --bg-page: var(--c-sec-b3);
+  --bg-surface: var(--c-sec-b2);
+  --bg-card: var(--c-sec-b1);
+  --bg-input: var(--c-sec-b3);
+  --text-main: var(--c-pri-5);
+  --text-accent: var(--c-pri-1);
+  --text-muted: var(--c-sec-b5);
+  --border-main: var(--c-sec-b4);
+  --btn-bg: var(--c-sec-a1);
+  --btn-hover: var(--c-sec-a4);
+  --btn-text: var(--c-pri-5);
+  --badge-bg: var(--c-sec-a3);
+}
+
+/* Светлая тема: минимум 4 изменения в дизайне (фон, карточки, типографика, кнопки/рамки) */
+.page--light {
+  --bg-page: var(--c-pri-5);
+  --bg-surface: var(--c-pri-4);
+  --bg-card: var(--c-pri-1);
+  --bg-input: var(--c-pri-5);
+  --text-main: var(--c-sec-b3);
+  --text-accent: var(--c-sec-a3);
+  --text-muted: var(--c-sec-b2);
+  --border-main: var(--c-pri-3);
+  --btn-bg: var(--c-sec-b1);
+  --btn-hover: var(--c-sec-b4);
+  --btn-text: var(--c-pri-5);
+  --badge-bg: var(--c-pri-2);
+}
+
+/* ==========================================================================
+   3. БАЗОВЫЕ СТИЛИ И СЕТКА
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section {
+  padding: 32px 0;
+}
+
+.section__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-accent);
+  margin-bottom: 20px;
+  border-left: 5px solid var(--c-sec-a1);
+  padding-left: 12px;
+}
+
+/* ==========================================================================
+   4. КНОПКИ И ЭЛЕМЕНТЫ ФОРМ
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 20px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 2px solid var(--border-main);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background-color: var(--bg-surface);
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}
+
+.btn--outline:hover {
+  background-color: var(--c-sec-a2);
+  color: var(--c-pri-5);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   5. ШАПКА САЙТА И БУРГЕР-МЕНЮ (MOBILE FIRST: 360px)
+   ========================================================================== */
+.header {
+  background-color: var(--bg-surface);
+  border-bottom: 3px solid var(--border-main);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  gap: 12px;
+}
+
+/* Блок логотипа с зарезервированным местом под фото */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__logo-slot {
+  width: 44px;
+  height: 44px;
+  background-color: var(--bg-card);
+  border: 2px dashed var(--text-accent);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.header__brand-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-accent);
+}
+
+/* Чекбокс бургера для мобильной и планшетной версий */
+.header__burger-checkbox {
+  display: none;
+}
+
+.header__burger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.header__burger-line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--text-accent);
+  border-radius: 2px;
+}
+
+.header__nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 2px solid var(--border-main);
+}
+
+.header__burger-checkbox:checked ~ .header__nav {
+  display: flex;
+}
+
+.header__nav-link {
+  font-weight: 500;
+  padding: 8px 12px;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+.header__nav-link:hover {
+  background-color: var(--c-sec-a2);
+  color: var(--c-pri-5);
+}
+
+/* ==========================================================================
+   6. СЛАЙДЕР НОВИНОК
+   ========================================================================== */
+.slider {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.slider__track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.slider__item {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-main);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider__item--active {
+  border-color: var(--c-pri-1);
+}
+
+.slider__img-wrap {
+  height: 180px;
+  background-color: var(--bg-page);
+  border-bottom: 2px solid var(--border-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.slider__title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-accent);
+}
+
+.slider__price {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--c-sec-a4);
+  background-color: var(--bg-page);
+  padding: 4px 10px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.slider__indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.slider__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--border-main);
+  border: 2px solid var(--text-main);
+}
+
+.slider__dot--active {
+  background-color: var(--c-sec-a1);
+  border-color: var(--c-pri-1);
+  transform: scale(1.2);
+}
+
+/* ==========================================================================
+   7. БЫСТРЫЙ ПОИСК ПО ЖАНРАМ
+   ========================================================================== */
+.search-box {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.search-box__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-box__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 2px solid var(--border-main);
+  border-radius: 6px;
+}
+
+.search-box__input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. ИНФОГРАФИКА О ПРЕИМУЩЕСТВАХ
+   ========================================================================== */
+.advantages__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.advantages__card {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.advantages__icon-wrap {
+  width: 56px;
+  height: 56px;
+  background-color: var(--bg-card);
+  border: 2px solid var(--text-accent);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.advantages__title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-accent);
+}
+
+.advantages__desc {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   9. КАРТОЧКИ ИГР (ПОПУЛЯРНЫЕ И КАТАЛОГ)
+   ========================================================================== */
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.game-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--text-accent);
+}
+
+/* Ссылка на всю карточку для перехода по клику */
+.game-card__overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.game-card__img-wrap {
+  height: 160px;
+  background-color: var(--bg-page);
+  border-bottom: 2px solid var(--border-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.game-card__genre {
+  font-weight: 300;
+  font-size: 13px;
+  background-color: var(--badge-bg);
+  color: var(--c-pri-5);
+  padding: 2px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.game-card__title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-accent);
+}
+
+.game-card__developer {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.game-card__rating {
+  font-size: 16px;
+  color: var(--c-pri-1);
+  letter-spacing: 2px;
+}
+
+.game-card__footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.game-card__price {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text-main);
+}
+
+.game-card__btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   10. ПАРТНЕРЫ
+   ========================================================================== */
+.partners__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.partners__item {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.partners__logo-box {
+  width: 120px;
+  height: 54px;
+  background-color: var(--bg-card);
+  border: 2px dashed var(--text-accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   11. ПОДВАЛ САЙТА (FOOTER)
+   ========================================================================== */
+.footer {
+  background-color: var(--bg-surface);
+  border-top: 3px solid var(--border-main);
+  padding: 32px 0;
+  margin-top: 40px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.footer__col-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text-accent);
+  margin-bottom: 10px;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer__link {
+  font-weight: 300;
+  color: var(--text-main);
+}
+
+.footer__link:hover {
+  color: var(--c-sec-a4);
+}
+
+/* ==========================================================================
+   12. ФОРМЫ (ВХОД, РЕГИСТРАЦИЯ, АДМИН-ПАНЕЛЬ)
+   ========================================================================== */
+.form-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.form-card__group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-card__label {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-accent);
+}
+
+.form-card__input,
+.form-card__select,
+.form-card__textarea {
+  padding: 10px 12px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 2px solid var(--border-main);
+  border-radius: 6px;
+}
+
+.form-card__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-card__check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.form-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   13. ЛИЧНЫЙ КАБИНЕТ И КАТАЛОГ С ФИЛЬТРОМ
+   ========================================================================== */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.profile-box {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.profile-box__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-box__item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-main);
+  padding-bottom: 6px;
+  font-weight: 300;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid var(--border-main);
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.history-table th {
+  background-color: var(--bg-card);
+  color: var(--text-accent);
+  font-weight: 700;
+}
+
+/* Фильтр каталога (мобильная и планшетная кнопка открытия) */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.filter__toggle-checkbox {
+  display: none;
+}
+
+.filter__mobile-btn {
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.filter__panel {
+  display: none;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-main);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.filter__toggle-checkbox:checked ~ .filter__panel {
+  display: block;
+}
+
+.filter__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   14. АДАПТИВНОСТЬ: ПЕРЕХОД К ПЛАНШЕТНОЙ ВЕРСИИ (768px)
+   Минимум 4 структурных изменения относительно 360px:
+   1) Слайдер новинок перестраивается в 2 колонки.
+   2) Поиск по жанрам становится горизонтальным (поле + кнопка в ряд).
+   3) Инфографика преимуществ переходит в сетку 2x2.
+   4) Карточки популярных игр и каталога перестраиваются в 2 колонки.
+   5) Партнеры и подвал перестраиваются в 3 колонки.
+   ========================================================================== */
+@media (min-width: 768px) {
+  .container {
+    max-width: 736px;
+  }
+
+  /* Изменение 1: Слайдер в 2 колонки */
+  .slider__track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Изменение 2: Горизонтальная форма быстрого поиска */
+  .search-box__form {
+    flex-direction: row;
+  }
+
+  /* Изменение 3: Преимущества в 2 колонки */
+  .advantages__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Изменение 4: Карточки игр в 2 колонки */
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Изменение 5: Партнеры и подвал в 3 колонки */
+  .partners__grid,
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .form-card__actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   15. АДАПТИВНОСТЬ: ПЕРЕХОД К ДЕСКТОПНОЙ ВЕРСИИ (1200px - 1920px)
+   Минимум 4 структурных изменения относительно планшета (768px):
+   1) Бургер-меню скрывается, навигация отображается горизонтально полностью.
+   2) Слайдер новинок выстраивается в 3 колонки в один ряд.
+   3) Инфографика преимуществ выстраивается в 4 колонки в один ряд.
+   4) Популярные игры перестраиваются в 5 колонок в ряд.
+   5) В каталоге кнопка открытия фильтра скрывается, панель фильтра открыта слева.
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1640px;
+    padding: 0 32px;
+  }
+
+  /* Изменение 1: Полное горизонтальное меню вместо бургера */
+  .header__burger-btn {
+    display: none;
+  }
+
+  .header__nav {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  /* Изменение 2: Слайдер в 3 колонки */
+  .slider__track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Изменение 3: Инфографика в 4 колонки */
+  .advantages__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Изменение 4: Популярные игры в 5 колонок */
+  .games-grid--popular {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .games-grid--catalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Изменение 5: Постоянный сайдбар фильтра в каталоге и 2 колонки профиля */
+  .catalog-layout {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+
+  .filter__mobile-btn {
+    display: none;
+  }
+
+  .filter__panel {
+    display: block;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr 2fr;
+  }
+}

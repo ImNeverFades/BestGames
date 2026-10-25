@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestGames — Маркетплейс компьютерных игр (Светлая тема)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page page--light">
+
+  <!-- Шапка сайта (Светлая тема) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index_light.html" class="header__brand">
+        <div class="header__logo-slot">
+          <img src="img/logo.png" alt="Логотип" class="header__logo-img">
+        </div>
+        <span class="header__brand-title">BestGames</span>
+      </a>
+
+      <input type="checkbox" id="burger-toggle-light" class="header__burger-checkbox">
+      <label for="burger-toggle-light" class="header__burger-btn" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </label>
+
+      <nav class="header__nav">
+        <a href="#search" class="header__nav-link">Поиск</a>
+        <a href="catalog.html" class="header__nav-link">Каталог игр</a>
+        <a href="profile.html" class="header__nav-link">Личный кабинет</a>
+        <a href="admin.html" class="header__nav-link">Админ-панель</a>
+        <a href="index.html" class="header__nav-link">Темная тема</a>
+        <a href="login.html" class="btn">Войти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Слайдер с новинками игр -->
+    <section class="section">
+      <div class="container">
+        <h1 class="section__title">Новинки сезона</h1>
+        <div class="slider">
+          <div class="slider__track">
+            <article class="slider__item slider__item--active">
+              <div class="slider__img-wrap">
+                <img src="img/slide-1.jpg" alt="Cyber Arena 2088" class="slider__img">
+              </div>
+              <div class="slider__content">
+                <h2 class="slider__title">Cyber Arena 2088</h2>
+                <span class="slider__price">2 490 ₽</span>
+                <a href="catalog.html" class="btn">Подробнее</a>
+              </div>
+            </article>
+
+            <article class="slider__item">
+              <div class="slider__img-wrap">
+                <img src="img/slide-2.jpg" alt="Shadow of Runes" class="slider__img">
+              </div>
+              <div class="slider__content">
+                <h2 class="slider__title">Shadow of Runes</h2>
+                <span class="slider__price">1 890 ₽</span>
+                <a href="catalog.html" class="btn">Подробнее</a>
+              </div>
+            </article>
+
+            <article class="slider__item">
+              <div class="slider__img-wrap">
+                <img src="img/slide-3.jpg" alt="Star Drift Online" class="slider__img">
+              </div>
+              <div class="slider__content">
+                <h2 class="slider__title">Star Drift Online</h2>
+                <span class="slider__price">1 290 ₽</span>
+                <a href="catalog.html" class="btn">Подробнее</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="slider__indicators">
+            <span class="slider__dot slider__dot--active"></span>
+            <span class="slider__dot"></span>
+            <span class="slider__dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Быстрый поиск по жанрам -->
+    <section id="search" class="section">
+      <div class="container">
+        <h2 class="section__title">Быстрый поиск по жанрам</h2>
+        <div class="search-box">
+          <form action="catalog.html" method="get" class="search-box__form">
+            <input
+              type="search"
+              name="genre"
+              list="genre-suggestions-light"
+              class="search-box__input"
+              placeholder="Введите или выберите жанр..."
+              required
+            >
+            <datalist id="genre-suggestions-light">
+              <option value="RPG (Ролевые игры)"></option>
+              <option value="Шутер (FPS)"></option>
+              <option value="Стратегия (RTS)"></option>
+              <option value="Киберспорт (MOBA)"></option>
+              <option value="Симулятор"></option>
+            </datalist>
+            <button type="submit" class="btn">Найти</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Инфографика о преимуществах -->
+    <section class="section advantages">
+      <div class="container">
+        <h2 class="section__title">Преимущества BestGames</h2>
+        <div class="advantages__grid">
+          <article class="advantages__card">
+            <div class="advantages__icon-wrap">
+              <img src="img/adv-price.png" alt="Цены">
+            </div>
+            <div>
+              <h3 class="advantages__title">Привлекательные цены</h3>
+              <p class="advantages__desc">Прямые поставки ключей и предметов от издателей.</p>
+            </div>
+          </article>
+
+          <article class="advantages__card">
+            <div class="advantages__icon-wrap">
+              <img src="img/adv-promo.png" alt="Акции">
+            </div>
+            <div>
+              <h3 class="advantages__title">Ежемесячные акции</h3>
+              <p class="advantages__desc">Крупные скидки для геймеров и кибер-команд.</p>
+            </div>
+          </article>
+
+          <article class="advantages__card">
+            <div class="advantages__icon-wrap">
+              <img src="img/adv-support.png" alt="Поддержка">
+            </div>
+            <div>
+              <h3 class="advantages__title">Круглосуточная поддержка</h3>
+              <p class="advantages__desc">Помощь специалиста в чате 24/7 без выходных.</p>
+            </div>
+          </article>
+
+          <article class="advantages__card">
+            <div class="advantages__icon-wrap">
+              <img src="img/adv-fast.png" alt="Быстрая покупка">
+            </div>
+            <div>
+              <h3 class="advantages__title">Быстрая покупка</h3>
+              <p class="advantages__desc">Мгновенная доставка кода активации на почту.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярные игры (5 карточек) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Популярные игры</h2>
+        <div class="games-grid games-grid--popular">
+
+          <article class="game-card">
+            <a href="catalog.html" class="game-card__overlay-link" aria-label="Перейти в каталог"></a>
+            <div class="game-card__img-wrap">
+              <img src="img/game-1.jpg" alt="Apex Tactix">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Шутер</span>
+              <h3 class="game-card__title">Apex Tactix</h3>
+              <p class="game-card__developer">NovaCore Studios</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 490 ₽</span>
+                <a href="catalog.html" class="btn game-card__btn">В каталог</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <a href="catalog.html" class="game-card__overlay-link" aria-label="Перейти в каталог"></a>
+            <div class="game-card__img-wrap">
+              <img src="img/game-2.jpg" alt="Elden Odyssey">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">RPG</span>
+              <h3 class="game-card__title">Elden Odyssey</h3>
+              <p class="game-card__developer">IronGate Games</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">2 990 ₽</span>
+                <a href="catalog.html" class="btn game-card__btn">В каталог</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <a href="catalog.html" class="game-card__overlay-link" aria-label="Перейти в каталог"></a>
+            <div class="game-card__img-wrap">
+              <img src="img/game-3.jpg" alt="Dota Champions">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">MOBA</span>
+              <h3 class="game-card__title">Dota Champions</h3>
+              <p class="game-card__developer">Vortex Labs</p>
+              <div class="game-card__rating">★★★★☆</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">790 ₽</span>
+                <a href="catalog.html" class="btn game-card__btn">В каталог</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <a href="catalog.html" class="game-card__overlay-link" aria-label="Перейти в каталог"></a>
+            <div class="game-card__img-wrap">
+              <img src="img/game-4.jpg" alt="Colony Command">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Стратегия</span>
+              <h3 class="game-card__title">Colony Command</h3>
+              <p class="game-card__developer">Red Sun Interactive</p>
+              <div class="game-card__rating">★★★★☆</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 190 ₽</span>
+                <a href="catalog.html" class="btn game-card__btn">В каталог</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <a href="catalog.html" class="game-card__overlay-link" aria-label="Перейти в каталог"></a>
+            <div class="game-card__img-wrap">
+              <img src="img/game-5.jpg" alt="Nitro Horizon">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Гонки</span>
+              <h3 class="game-card__title">Nitro Horizon</h3>
+              <p class="game-card__developer">Velocity Works</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 650 ₽</span>
+                <a href="catalog.html" class="btn game-card__btn">В каталог</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Наши партнеры -->
+    <section class="section partners">
+      <div class="container">
+        <h2 class="section__title">Наши партнеры</h2>
+        <div class="partners__grid">
+          <div class="partners__item">
+            <div class="partners__logo-box">
+              <img src="img/partner-1.png" alt="NovaCore Studios">
+            </div>
+            <span>NovaCore Studios</span>
+          </div>
+          <div class="partners__item">
+            <div class="partners__logo-box">
+              <img src="img/partner-2.png" alt="CyberLeague Pro">
+            </div>
+            <span>CyberLeague Pro</span>
+          </div>
+          <div class="partners__item">
+            <div class="partners__logo-box">
+              <img src="img/partner-3.png" alt="IronGate Games">
+            </div>
+            <span>IronGate Games</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3 class="footer__col-title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a href="tel:88009995599" class="footer__link">Телефон: 8-800-999-55-99</a></li>
+          <li><a href="mailto:best@games.ru" class="footer__link">E-mail: best@games.ru</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__col-title">Информация</h3>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">Клиентам</a></li>
+          <li><a href="#" class="footer__link">Партнерам</a></li>
+          <li><a href="#" class="footer__link">О нас</a></li>
+          <li><a href="#" class="footer__link">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__col-title">Навигация по сайту</h3>
+        <ul class="footer__list">
+          <li><a href="index_light.html" class="footer__link">Главная</a></li>
+          <li><a href="register.html" class="footer__link">Регистрация</a></li>
+          <li><a href="login.html" class="footer__link">Авторизация</a></li>
+          <li><a href="profile.html" class="footer__link">Личный кабинет</a></li>
+          <li><a href="#search" class="footer__link">Поиск</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
