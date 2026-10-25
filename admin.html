@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Административная панель — BestGames</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__brand">
+        <div class="header__logo-slot">
+          <img src="img/logo.png" alt="Логотип" class="header__logo-img">
+        </div>
+        <span class="header__brand-title">BestGames Admin</span>
+      </a>
+
+      <input type="checkbox" id="burger-admin" class="header__burger-checkbox">
+      <label for="burger-admin" class="header__burger-btn" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </label>
+
+      <nav class="header__nav">
+        <a href="index.html" class="header__nav-link">На главную</a>
+        <a href="catalog.html" class="header__nav-link">Каталог игр</a>
+        <a href="profile.html" class="header__nav-link">Личный кабинет</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Форма добавления новой игры -->
+  <main class="main section">
+    <div class="container">
+      <div class="form-card">
+        <h1 class="section__title">Добавление новой игры</h1>
+        <form action="catalog.html" method="post" enctype="multipart/form-data">
+          <div class="form-card__group">
+            <label for="game-title" class="form-card__label">Название игры</label>
+            <input type="text" id="game-title" name="title" class="form-card__input" placeholder="Например: Star Drift Online" required>
+          </div>
+
+          <div class="form-card__group">
+            <label for="game-genre" class="form-card__label">Жанр</label>
+            <select id="game-genre" name="genre" class="form-card__select" required>
+              <option value="RPG">RPG (Ролевая игра)</option>
+              <option value="FPS">Шутер (FPS)</option>
+              <option value="MOBA">Киберспорт (MOBA)</option>
+              <option value="RTS">Стратегия (RTS)</option>
+              <option value="Sim">Симулятор / Гонки</option>
+            </select>
+          </div>
+
+          <div class="form-card__group">
+            <label for="game-image" class="form-card__label">Изображение обложки</label>
+            <input type="file" id="game-image" name="image" accept="image/*" class="form-card__input" required>
+          </div>
+
+          <div class="form-card__group">
+            <label for="game-dev" class="form-card__label">Компания-разработчик</label>
+            <input type="text" id="game-dev" name="developer" class="form-card__input" placeholder="NovaCore Studios" required>
+          </div>
+
+          <div class="form-card__group">
+            <label for="game-desc" class="form-card__label">Описание</label>
+            <textarea id="game-desc" name="description" class="form-card__textarea" placeholder="Краткое описание игрового процесса и особенностей..." required></textarea>
+          </div>
+
+          <div class="form-card__group">
+            <label for="game-price" class="form-card__label">Стоимость (₽)</label>
+            <input type="number" id="game-price" name="price" min="0" step="10" class="form-card__input" placeholder="1990" required>
+          </div>
+
+          <div class="form-card__actions">
+            <button type="submit" class="btn btn--full">Добавить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3 class="footer__col-title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a href="tel:88009995599" class="footer__link">Телефон: 8-800-999-55-99</a></li>
+          <li><a href="mailto:best@games.ru" class="footer__link">E-mail: best@games.ru</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Информация</h3>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">Клиентам</a></li>
+          <li><a href="#" class="footer__link">Партнерам</a></li>
+          <li><a href="#" class="footer__link">О нас</a></li>
+          <li><a href="#" class="footer__link">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Навигация по сайту</h3>
+        <ul class="footer__list">
+          <li><a href="index.html" class="footer__link">Главная</a></li>
+          <li><a href="register.html" class="footer__link">Регистрация</a></li>
+          <li><a href="login.html" class="footer__link">Авторизация</a></li>
+          <li><a href="profile.html" class="footer__link">Личный кабинет</a></li>
+          <li><a href="index.html#search" class="footer__link">Поиск</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

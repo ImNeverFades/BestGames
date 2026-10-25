@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог игр — BestGames</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__brand">
+        <div class="header__logo-slot">
+          <img src="img/logo.png" alt="Логотип" class="header__logo-img">
+        </div>
+        <span class="header__brand-title">BestGames</span>
+      </a>
+
+      <input type="checkbox" id="burger-catalog" class="header__burger-checkbox">
+      <label for="burger-catalog" class="header__burger-btn" aria-label="Меню">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </label>
+
+      <nav class="header__nav">
+        <a href="index.html#search" class="header__nav-link">Поиск</a>
+        <a href="catalog.html" class="header__nav-link">Каталог игр</a>
+        <a href="profile.html" class="header__nav-link">Личный кабинет</a>
+        <a href="login.html" class="btn">Войти</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Контент каталога с адаптивным фильтром -->
+  <main class="main section">
+    <div class="container">
+      <h1 class="section__title">Каталог игр</h1>
+
+      <div class="catalog-layout">
+        <!-- Блок фильтрации (кнопка на мобильном/планшете, открытая панель на десктопе) -->
+        <aside class="filter">
+          <input type="checkbox" id="filter-toggle" class="filter__toggle-checkbox">
+          <label for="filter-toggle" class="btn filter__mobile-btn">Открыть фильтр по жанрам</label>
+
+          <form action="catalog.html" method="get" class="filter__panel">
+            <h2 class="footer__col-title">Фильтр по жанрам</h2>
+            <ul class="filter__list">
+              <li><label class="form-card__check"><input type="checkbox" name="g" value="rpg" checked> RPG (Ролевые)</label></li>
+              <li><label class="form-card__check"><input type="checkbox" name="g" value="fps" checked> Шутеры (FPS)</label></li>
+              <li><label class="form-card__check"><input type="checkbox" name="g" value="moba" checked> Киберспорт (MOBA)</label></li>
+              <li><label class="form-card__check"><input type="checkbox" name="g" value="rts"> Стратегии (RTS)</label></li>
+              <li><label class="form-card__check"><input type="checkbox" name="g" value="race"> Гонки и симуляторы</label></li>
+            </ul>
+            <div class="form-card__actions">
+              <button type="submit" class="btn btn--full">Применить</button>
+            </div>
+          </form>
+        </aside>
+
+        <!-- Сетка карточек каталога -->
+        <section class="games-grid games-grid--catalog">
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-1.jpg" alt="Apex Tactix">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Шутер</span>
+              <h3 class="game-card__title">Apex Tactix</h3>
+              <p class="game-card__developer">NovaCore Studios</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 490 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-2.jpg" alt="Elden Odyssey">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">RPG</span>
+              <h3 class="game-card__title">Elden Odyssey</h3>
+              <p class="game-card__developer">IronGate Games</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">2 990 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-3.jpg" alt="Dota Champions">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">MOBA</span>
+              <h3 class="game-card__title">Dota Champions</h3>
+              <p class="game-card__developer">Vortex Labs</p>
+              <div class="game-card__rating">★★★★☆</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">790 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-4.jpg" alt="Colony Command">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Стратегия</span>
+              <h3 class="game-card__title">Colony Command</h3>
+              <p class="game-card__developer">Red Sun Interactive</p>
+              <div class="game-card__rating">★★★★☆</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 190 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-5.jpg" alt="Nitro Horizon">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Гонки</span>
+              <h3 class="game-card__title">Nitro Horizon</h3>
+              <p class="game-card__developer">Velocity Works</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">1 650 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <div class="game-card__img-wrap">
+              <img src="img/game-6.jpg" alt="Cyber Arena 2088">
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__genre">Киберспорт</span>
+              <h3 class="game-card__title">Cyber Arena 2088</h3>
+              <p class="game-card__developer">NovaCore Studios</p>
+              <div class="game-card__rating">★★★★★</div>
+              <div class="game-card__footer">
+                <span class="game-card__price">2 490 ₽</span>
+                <a href="#game-details" class="btn game-card__btn">Описание</a>
+              </div>
+            </div>
+          </article>
+
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <h3 class="footer__col-title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a href="tel:88009995599" class="footer__link">Телефон: 8-800-999-55-99</a></li>
+          <li><a href="mailto:best@games.ru" class="footer__link">E-mail: best@games.ru</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Информация</h3>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">Клиентам</a></li>
+          <li><a href="#" class="footer__link">Партнерам</a></li>
+          <li><a href="#" class="footer__link">О нас</a></li>
+          <li><a href="#" class="footer__link">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Навигация по сайту</h3>
+        <ul class="footer__list">
+          <li><a href="index.html" class="footer__link">Главная</a></li>
+          <li><a href="register.html" class="footer__link">Регистрация</a></li>
+          <li><a href="login.html" class="footer__link">Авторизация</a></li>
+          <li><a href="profile.html" class="footer__link">Личный кабинет</a></li>
+          <li><a href="index.html#search" class="footer__link">Поиск</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
